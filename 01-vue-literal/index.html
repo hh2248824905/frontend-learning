@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>01 · Vue 字面量入门（CDN）</title>
+  <!-- CDN 引入 Vue3 全局构建版本，无需打包工具即可使用 -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: #f5f7fa;
+      color: #303133;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    h1 { font-size: 22px; margin: 0 0 4px; color: #42b883; }
+    .sub { color: #909399; font-size: 13px; margin: 0 0 24px; }
+    .section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #ebeef5; }
+    .section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .label { font-size: 13px; color: #909399; margin-bottom: 10px; }
+    .counter-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .num {
+      font-size: 40px;
+      font-weight: 700;
+      min-width: 60px;
+      text-align: center;
+      color: #303133;
+    }
+    /* ③ v-bind:class 动态绑定样式：偶数绿、奇数红 */
+    .num.even { color: #42b883; }
+    .num.odd { color: #f56c6c; }
+    button {
+      border: 1px solid #dcdfe6;
+      background: #fff;
+      color: #303133;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    button:hover { color: #42b883; border-color: #42b883; }
+    button.primary { background: #42b883; color: #fff; border-color: #42b883; }
+    button.primary:hover { background: #3aa876; }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #dcdfe6;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+    input:focus { border-color: #42b883; }
+    .tip { font-size: 13px; color: #909399; margin-top: 10px; }
+    .hello { font-size: 18px; color: #42b883; margin: 12px 0 0; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    li { line-height: 1.9; }
+    code {
+      background: #f0f9eb;
+      color: #3aa876;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: ui-monospace, Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <!-- Vue 挂载点：模板里所有指令都作用在这个元素内 -->
+  <div id="app">
+    <div class="card">
+      <h1>Vue 字面量入门练习</h1>
+      <p class="sub">不借助构建工具，通过 CDN 直接使用 Vue 3（选项式 API）</p>
+
+      <!-- ① 插值 {{ }} + ② 事件 v-on(@click) + ③ v-bind:class -->
+      <div class="section">
+        <div class="label">① 插值 {{ }} · ② 事件 @click · ③ 动态类 :class</div>
+        <div class="counter-row">
+          <button @click="count--">-1</button>
+          <span class="num" :class="count % 2 === 0 ? 'even' : 'odd'">{{ count }}</span>
+          <button class="primary" @click="count++">+1</button>
+          <button @click="count = 0">重置</button>
+        </div>
+        <p class="tip">当前计数是 <code>{{ evenOrOdd }}</code>（⑦ computed 计算属性）</p>
+      </div>
+
+      <!-- ④ v-model 双向绑定 + ⑤ v-if/v-else 条件渲染 -->
+      <div class="section">
+        <div class="label">④ v-model 双向绑定 · ⑤ v-if / v-else 条件渲染</div>
+        <input v-model="name" placeholder="输入你的名字..." />
+        <p v-if="name" class="hello">你好，{{ name }}！👋</p>
+        <p v-else class="tip">↑ 输入名字后，这里会实时显示问候语</p>
+      </div>
+
+      <!-- ⑥ v-for 列表渲染 -->
+      <div class="section">
+        <div class="label">⑥ v-for 列表渲染（带 :key）</div>
+        <ul>
+          <li v-for="item in skills" :key="item.id">
+            <b>{{ item.name }}</b> —— {{ item.desc }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 解构 Vue 全局对象（CDN 引入后挂在 window.Vue 上）
+    const { createApp } = Vue
+
+    // 选项式 API（Options API）：
+    //   data()     返回响应式数据
+    //   methods    定义事件方法（模板里 @click 直接调用 data 里的变量名）
+    //   computed   定义计算属性（依赖 count，自动缓存）
+    createApp({
+      data() {
+        return {
+          count: 0,
+          name: '',
+          skills: [
+            { id: 1, name: 'HTML', desc: '页面结构' },
+            { id: 2, name: 'CSS', desc: '页面样式' },
+            { id: 3, name: 'JavaScript', desc: '页面行为' },
+            { id: 4, name: 'Vue', desc: '响应式框架' }
+          ]
+        }
+      },
+      computed: {
+        // 计算属性：依赖 count，count 变化时自动重新计算
+        evenOrOdd() {
+          return this.count % 2 === 0 ? '偶数' : '奇数'
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
