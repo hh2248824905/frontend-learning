@@ -1,6 +1,6 @@
 # 前端学习笔记
 
-> 一份面向入门到进阶的前端学习笔记，覆盖 HTML、CSS、JavaScript、框架与工程化的核心知识点，可作为学习路线与速查手册。
+> 一份面向入门到进阶的前端学习笔记，覆盖 HTML、CSS、JavaScript、TypeScript、框架与工程化的核心知识点，可作为学习路线与速查手册。
 
 ---
 
@@ -434,7 +434,139 @@ function Counter() {
 
 ---
 
-## 九、工程化与工具链
+## 九、TypeScript 类型系统
+
+TypeScript 是 JavaScript 的超集，为 JS 添加了**静态类型系统**，在编译期发现类型错误，已成为现代前端项目的标配。
+
+### 9.1 为什么用 TypeScript
+
+- 编译期发现错误，减少运行时 bug
+- IDE 提供更智能的补全与跳转
+- 代码即文档，类型即注释
+- 重构更安全
+
+### 9.2 基础类型
+
+```ts
+// 原始类型
+const name: string = 'Tom';
+const age: number = 18;
+const active: boolean = true;
+
+// 数组
+const nums: number[] = [1, 2, 3];
+const strs: Array<string> = ['a', 'b'];
+
+// 元组
+const pair: [string, number] = ['Tom', 18];
+
+// 联合类型
+let val: string | number = 'a';
+val = 1; // 也允许
+
+// 字面量类型
+type Direction = 'up' | 'down' | 'left' | 'right';
+```
+
+### 9.3 接口与类型别名
+
+```ts
+// interface
+interface User {
+  name: string;
+  age: number;
+  readonly id: number;    // 只读
+  email?: string;         // 可选
+  [key: string]: unknown; // 索引签名
+}
+
+// type
+type Status = 'active' | 'inactive';
+type Point = { x: number; y: number };
+
+// 继承
+interface Admin extends User {
+  role: 'admin';
+}
+```
+
+### 9.4 泛型
+
+泛型让类型可参数化，复用同一段代码处理多种类型：
+
+```ts
+function identity<T>(value: T): T {
+  return value;
+}
+
+const a = identity<string>('hello'); // 显式指定
+const b = identity(42);              // 自动推断
+
+// 泛型接口
+interface ApiResult<T> {
+  code: number;
+  data: T;
+}
+
+const userResult: ApiResult<User> = { code: 0, data: { name: 'Tom', age: 18, id: 1 } };
+```
+
+### 9.5 常用工具类型
+
+| 类型 | 作用 |
+|---|---|
+| `Partial<T>` | 所有属性变为可选 |
+| `Required<T>` | 所有属性变为必选 |
+| `Readonly<T>` | 所有属性变为只读 |
+| `Pick<T, K>` | 挑选指定属性 |
+| `Omit<T, K>` | 排除指定属性 |
+| `Record<K, V>` | 创建键值映射类型 |
+
+```ts
+interface User { name: string; age: number; email: string; }
+type UserPreview = Pick<User, 'name' | 'email'>; // { name; email }
+type UserPatch  = Partial<User>;                  // 全可选
+```
+
+### 9.6 在项目中使用
+
+```bash
+# 安装
+npm install -D typescript
+
+# 初始化
+npx tsc --init
+
+# 类型检查（不输出文件）
+npx tsc --noEmit
+```
+
+`tsconfig.json` 关键字段：
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"]
+}
+```
+
+### 9.7 学习建议
+
+1. 先用宽松模式（`strict: false`）上手，再逐步开启严格模式
+2. 优先理解**类型推断**，不要到处显式标注
+3. 熟悉 `any` / `unknown` / `never` 的区别：**能用 `unknown` 就不用 `any`**
+4. 多读优秀开源项目的类型定义（如 Vue / React 的 .d.ts）
+
+---
+
+## 十、工程化与工具链
 
 ### 9.1 包管理器
 
@@ -465,7 +597,7 @@ npm run <script>         # 运行脚本
 
 ---
 
-## 十、学习资源与建议
+## 十一、学习资源与建议
 
 ### 10.1 推荐资源
 
