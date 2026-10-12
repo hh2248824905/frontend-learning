@@ -1,27 +1,32 @@
-# Obsidian
+# node 依赖
+node_modules/
+
+# 构建产物
+dist/
+build/
+dist-ssr/
+
+# 本地环境变量（保留 .env.development 与 .env.production）
+.env
+.env.local
+.env.*.local
+
+# 编辑器配置（保留共享的 settings.json 与 extensions.json）
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+
+# 笔记工具本地配置（Obsidian 库配置不随仓库分发）
 .obsidian/
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-**/.vscode/*
-!**/.vscode/extensions.json
-.idea
+# 系统文件
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+*.log
+pnpm-debug.log*
+
+# 测试与覆盖率
+coverage/
+
+# AI 助手本地工作数据
+.workbuddy/

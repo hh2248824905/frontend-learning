@@ -24,17 +24,37 @@ npm run preview   # 预览构建产物
 ## 目录结构
 
 ```
-src/
-├── main.js                        # 入口：注册 Element Plus
-├── App.vue                        # 根组件，通过注释切换子页面
-├── style.css                      # 全局样式
-├── assets/                        # 静态资源
-└── views/                         # 子页面，按单元分组
-    ├── unit-04/                   # 单元 4：模板语法与响应式基础
-    │   └── vue-literal-cdn.html   # CDN 版字面量入门页（免构建，直接浏览器打开）
-    └── unit-05/                   # 单元 5：计算属性、侦听器与渲染控制
-        └── StudentList.vue        # 学生名单多视图（表格 / 卡片 / 名单 / 分组）
+practice-app/
+├── src/
+│   ├── views/                       子页面，按单元分组
+│   │   ├── unit-04/                 单元 4 课堂练习（待补充）
+│   │   ├── unit-05/                 单元 5 课堂练习
+│   │   │   └── StudentList.vue      学生名单多视图（表格 / 卡片 / 名单 / 分组）
+│   │   └── unit-06/                 单元 6 课堂练习（待补充）
+│   ├── components/                  本模块内共用的小组件
+│   ├── assets/                      静态资源
+│   ├── App.vue                      根组件，通过注释切换子页面
+│   ├── main.js                      入口：注册 Element Plus
+│   └── style.css                    全局样式
+├── public/
+│   ├── unit-04-literal.html         字面量入门对照页（CDN 引入 Vue，独立打开）
+│   ├── icons.svg                    iconfont.cn 图标精灵
+│   └── images/                      练习用头像与插图
+├── index.html
+├── vite.config.js
+└── package.json
 ```
+
+模块级的目录约定、练习清单与常见错误定位方向见 `../README.md`（模块二）。
+
+## 待补充
+
+| 位置 | 内容 | 来源 |
+| --- | --- | --- |
+| `src/views/unit-04/` | `ProfileCard.vue`、`Toggle.vue`、`Activity.vue`、`DirectiveLab.vue`、`directive-lab/`（13 个指令各一个文件） | 模块二文档 |
+| `src/views/unit-05/` | 可排序筛选的数据表格、待办清单 CRUD | 模块二文档 |
+| `src/views/unit-06/` | 多步预订表单、Markdown 编辑器 | 模块二文档 |
+| `src/App.vue` | 改为练习导航入口，用 `practiceList` 表列出全部练习页面 | 模块二文档 |
 
 ## 常见问题
 
