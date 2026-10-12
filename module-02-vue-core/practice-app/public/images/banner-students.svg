@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+  <!-- 页头横幅插画 · iconfont 扁平风格 · 学生名单主题 -->
+  <defs>
+    <linearGradient id="bannerGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#42b883"/>
+      <stop offset="100%" stop-color="#2f9e6d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="200" rx="14" fill="url(#bannerGrad)"/>
+
+  <!-- 装饰几何色块 -->
+  <circle cx="700" cy="40" r="70" fill="#fff" opacity="0.07"/>
+  <circle cx="120" cy="180" r="90" fill="#fff" opacity="0.05"/>
+  <rect x="620" y="120" width="46" height="46" rx="8" fill="#fff" opacity="0.08" transform="rotate(18 643 143)"/>
+
+  <!-- 左侧：三个简化学生头像 -->
+  <g transform="translate(70,52)">
+    <circle cx="46" cy="46" r="44" fill="#fff" opacity="0.16"/>
+    <circle cx="46" cy="46" r="34" fill="#fdd9b5"/>
+    <path d="M20 44c0-14 11-24 26-24s26 10 26 24c0 3-1 5-1 5s-3-12-25-12-25 12-25 12-1-2-1-5z" fill="#3d3d3d"/>
+    <circle cx="38" cy="46" r="3" fill="#3d3d3d"/>
+    <circle cx="54" cy="46" r="3" fill="#3d3d3d"/>
+    <path d="M41 56c2 2.5 8 2.5 10 0" stroke="#c98a5e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M18 96c0-15 13-26 28-26s28 11 28 26z" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <g transform="translate(150,68) scale(0.82)">
+    <circle cx="46" cy="46" r="44" fill="#fff" opacity="0.16"/>
+    <circle cx="46" cy="46" r="34" fill="#ffe0c2"/>
+    <path d="M18 50c0-17 13-29 28-29s28 12 28 29v18c0 3-2 5-4 4-2-1-2-3-2-6V48c0-11-9-18-22-18s-22 7-22 18v18c0 3 0 5-2 6-2 1-4-1-4-4V50z" fill="#5a3a22"/>
+    <circle cx="38" cy="46" r="3" fill="#3d3d3d"/>
+    <circle cx="54" cy="46" r="3" fill="#3d3d3d"/>
+    <path d="M41 56c2 2.5 8 2.5 10 0" stroke="#c98a5e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M18 96c0-15 13-26 28-26s28 11 28 26z" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <g transform="translate(230,52)">
+    <circle cx="46" cy="46" r="44" fill="#fff" opacity="0.16"/>
+    <circle cx="46" cy="46" r="34" fill="#f8cfa8"/>
+    <path d="M20 44c0-14 11-24 26-24s26 10 26 24c0 3-1 5-1 5s-4-9-7-9c-3 0-4 4-7 4s-4-5-7-5-4 5-7 5-4-4-7-4c-3 0-7 9-7 9s-1-2-1-5z" fill="#2b2b2b"/>
+    <circle cx="38" cy="46" r="6" fill="none" stroke="#3d3d3d" stroke-width="2.2"/>
+    <circle cx="54" cy="46" r="6" fill="none" stroke="#3d3d3d" stroke-width="2.2"/>
+    <path d="M44 46h4" stroke="#3d3d3d" stroke-width="2.2"/>
+    <path d="M41 56c2 2.5 8 2.5 10 0" stroke="#c98a5e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M18 96c0-15 13-26 28-26s28 11 28 26z" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <!-- 右侧：文字 -->
+  <g transform="translate(360,78)" fill="#fff">
+    <text x="0" y="0" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="30" font-weight="700">学生名单 · 多视图渲染</text>
+    <text x="0" y="34" font-family="PingFang SC, Microsoft YaHei, system-ui, sans-serif" font-size="15" opacity="0.88">条件渲染练习 · 表格 / 卡片 / 名单三种显示方式</text>
+    <text x="0" y="62" font-family="ui-monospace, Consolas, monospace" font-size="13" opacity="0.75">v-if / v-else-if / v-else  +  Element Plus</text>
+  </g>
+
+  <!-- 统计数据迷你图 -->
+  <g transform="translate(620,86)" fill="#fff">
+    <rect x="0" y="46" width="14" height="26" rx="3" opacity="0.55"/>
+    <rect x="22" y="30" width="14" height="42" rx="3" opacity="0.7"/>
+    <rect x="44" y="14" width="14" height="58" rx="3" opacity="0.85"/>
+    <rect x="66" y="26" width="14" height="46" rx="3" opacity="0.7"/>
+  </g>
+</svg>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="zh-CN" data-page-node-id="CBpaLi0oLmNOP4aWuwRDE7">
+<head data-page-node-id="FRLMpalyJBnMvGQfMepGKA">
+  <meta charset="UTF-8" data-page-node-id="V9jH7ABS34PEcCf2WhgXgi" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="1vpFj08eT8l1PPy6YweNbl" />
   <title>01 · Vue 字面量入门（CDN）</title>
   <!-- CDN 引入 Vue3 全局构建版本，无需打包工具即可使用 -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -77,39 +77,39 @@
     }
   </style>
 </head>
-<body>
+<body data-page-node-id="dh4uoGW1pL6AHb35W6qIhP">
   <!-- Vue 挂载点：模板里所有指令都作用在这个元素内 -->
-  <div id="app">
-    <div class="card">
-      <h1>Vue 字面量入门练习</h1>
-      <p class="sub">不借助构建工具，通过 CDN 直接使用 Vue 3（选项式 API）</p>
+  <div id="app" data-page-node-id="lenrN3ClXpOLmRIVtCcRTz">
+    <div class="card" data-page-node-id="kEI1HhXw3WgZtuYuHklQhK">
+      <h1 data-page-node-id="FUF6MAxGw4pTUFlex3WGfL">Vue 字面量入门练习</h1>
+      <p class="sub" data-page-node-id="FoyUSoPrFuKUQh5AEMXYN4">不借助构建工具，通过 CDN 直接使用 Vue 3（选项式 API）</p>
 
       <!-- ① 插值 {{ }} + ② 事件 v-on(@click) + ③ v-bind:class -->
-      <div class="section">
-        <div class="label">① 插值 {{ }} · ② 事件 @click · ③ 动态类 :class</div>
-        <div class="counter-row">
-          <button @click="count--">-1</button>
-          <span class="num" :class="count % 2 === 0 ? 'even' : 'odd'">{{ count }}</span>
-          <button class="primary" @click="count++">+1</button>
-          <button @click="count = 0">重置</button>
+      <div class="section" data-page-node-id="1MuF8mzn3gGnhyZEjFYoqi">
+        <div class="label" data-page-node-id="MQQzC6bKhOXPJaeOXC8apY">① 插值 {{ }} · ② 事件 @click · ③ 动态类 :class</div>
+        <div class="counter-row" data-page-node-id="roCssSpzYW2bPHOkfAICau">
+          <button @click="count--" data-page-node-id="sVRYYo5oL4BGP5Hr7rajH6">-1</button>
+          <span class="num" :class="count % 2 === 0 ? 'even' : 'odd'" data-page-node-id="fgIMXTbBnZ1CDUdTnIjXVi">{{ count }}</span>
+          <button class="primary" @click="count++" data-page-node-id="scftjzjwAtvovfyRieI6K7">+1</button>
+          <button @click="count = 0" data-page-node-id="bGPxxfwJrlFI1PuyXiwARI">重置</button>
         </div>
-        <p class="tip">当前计数是 <code>{{ evenOrOdd }}</code>（⑦ computed 计算属性）</p>
+        <p class="tip" data-page-node-id="H0QHwJgjsviXZ4aFreuicR">当前计数是 <code data-page-node-id="DhdcAigGMFtt4TaYGFXbUl">{{ evenOrOdd }}</code>（⑦ computed 计算属性）</p>
       </div>
 
       <!-- ④ v-model 双向绑定 + ⑤ v-if/v-else 条件渲染 -->
-      <div class="section">
-        <div class="label">④ v-model 双向绑定 · ⑤ v-if / v-else 条件渲染</div>
-        <input v-model="name" placeholder="输入你的名字..." />
-        <p v-if="name" class="hello">你好，{{ name }}！👋</p>
-        <p v-else class="tip">↑ 输入名字后，这里会实时显示问候语</p>
+      <div class="section" data-page-node-id="IYJMnqNJNbv2SsMBQ6Bx4d">
+        <div class="label" data-page-node-id="vXTENCuqCCeLJZe50ysy2G">④ v-model 双向绑定 · ⑤ v-if / v-else 条件渲染</div>
+        <input v-model="name" placeholder="输入你的名字..." data-page-node-id="vNi24prm9WSI5AiSpkF2kJ" />
+        <p v-if="name" class="hello" data-page-node-id="OL3aeMMGAJ4z9CRuHhwlb3">你好，{{ name }}！👋</p>
+        <p v-else class="tip" data-page-node-id="Zc65X4jAKFjmCfwXHn7VpJ">↑ 输入名字后，这里会实时显示问候语</p>
       </div>
 
       <!-- ⑥ v-for 列表渲染 -->
-      <div class="section">
-        <div class="label">⑥ v-for 列表渲染（带 :key）</div>
-        <ul>
-          <li v-for="item in skills" :key="item.id">
-            <b>{{ item.name }}</b> —— {{ item.desc }}
+      <div class="section" data-page-node-id="P4GsrkTxHgVnJMQVEvZoV0">
+        <div class="label" data-page-node-id="svnX5VdGzSvyzL0RXssCIO">⑥ v-for 列表渲染（带 :key）</div>
+        <ul data-page-node-id="jrql4nTjeApDMcrHu2Dtlp">
+          <li v-for="item in skills" :key="item.id" data-page-node-id="EjE0k9jBxCYSof7BmxEeAT">
+            <b data-page-node-id="Eyag5nJn3qeUQqjF7uiJVc">{{ item.name }}</b> —— {{ item.desc }}
           </li>
         </ul>
       </div>
